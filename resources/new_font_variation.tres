@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://dx23pt4uonop2"]
+
+[ext_resource type="FontFile" uid="uid://cky2asfgrxagw" path="res://resources/Rostack.otf" id="1_0sno0"]
+
+[resource]
+base_font = ExtResource("1_0sno0")
+spacing_top = 15
+spacing_bottom = 15
