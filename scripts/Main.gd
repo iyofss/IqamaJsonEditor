@@ -3,8 +3,9 @@ extends Node
 var data = ''
 var newdata = ''
 
-# change to this when buliding to android:  '/storage/emulated/0'
-var mainDir = '/storage/emulated/0/prayerTime'
+# change to this when buliding to android:  '/storage/emulated/0/prayerTime'
+# change to this when building to windows: 'res://'
+var mainDir = 'res://'
 
 var monke = JSON.new()
 
@@ -15,6 +16,7 @@ var thingsported = ''
 var eson = Eson.new()
 
 # edit page variables:
+@onready var add_mosque_page = $addMosquePage
 
 @onready var mosque_edit_page = $mosqueEditPage
 @onready var mosque_name_label = $mosqueEditPage/MarginContainer/VBoxContainer/VBoxContainer/mosqueNameLabel
@@ -112,20 +114,35 @@ func save():
 
 # Mosque Button clicked:
 func _button_action(things):
-	print('test' + str(data[things]))
-	mosque_name_label.text = things
-	arabic_name_text_edit.text = data[things]['arabicName']
-	
-	block_text_edit.text = str(data[things]['block'])
-	lon_text_edit.text = str(data[things]['location']['lon'])
-	lat_text_edit.text = str(data[things]['location']['lat'])
-	fajr_iqama_text_edit.text = str(data[things]['fajrIqama'])
-	dhuhr_iqama_text_edit.text = str(data[things]['dhuhrIqama'])
-	asr_iqama_text_edit.text = str(data[things]['asrIqama'])
-	maghrib_iqama_text_edit.text = str(data[things]['maghribIqama'])
-	isha_iqama_text_edit.text = str(data[things]['ishaIqama'])
-	edit_date_text_edit.text = data[things]['editDate']
-	
+	if things not in newdata:
+		print('data: ' + str(data[things]))
+		mosque_name_label.text = things
+		arabic_name_text_edit.text = data[things]['arabicName']
+		
+		block_text_edit.text = str(data[things]['block'])
+		lon_text_edit.text = str(data[things]['location']['lon'])
+		lat_text_edit.text = str(data[things]['location']['lat'])
+		fajr_iqama_text_edit.text = str(data[things]['fajrIqama'])
+		dhuhr_iqama_text_edit.text = str(data[things]['dhuhrIqama'])
+		asr_iqama_text_edit.text = str(data[things]['asrIqama'])
+		maghrib_iqama_text_edit.text = str(data[things]['maghribIqama'])
+		isha_iqama_text_edit.text = str(data[things]['ishaIqama'])
+		edit_date_text_edit.text = data[things]['editDate']
+	elif things in newdata:
+		print('newdata: ' + str(newdata[things]))
+		mosque_name_label.text = things
+		arabic_name_text_edit.text = newdata[things]['arabicName']
+		
+		block_text_edit.text = str(newdata[things]['block'])
+		lon_text_edit.text = str(newdata[things]['location']['lon'])
+		lat_text_edit.text = str(newdata[things]['location']['lat'])
+		fajr_iqama_text_edit.text = str(newdata[things]['fajrIqama'])
+		dhuhr_iqama_text_edit.text = str(newdata[things]['dhuhrIqama'])
+		asr_iqama_text_edit.text = str(newdata[things]['asrIqama'])
+		maghrib_iqama_text_edit.text = str(newdata[things]['maghribIqama'])
+		isha_iqama_text_edit.text = str(newdata[things]['ishaIqama'])
+		edit_date_text_edit.text = newdata[things]['editDate']
+		
 	thingsported = things
 	
 	mosque_edit_page.visible = true
@@ -137,6 +154,7 @@ func _on_save_button_pressed():
 
 func _on_back_button_pressed():
 	mosque_edit_page.visible = false
+	add_mosque_page.visible = false
 
 
 var matches = []
@@ -161,3 +179,56 @@ func _on_text_edit_text_changed():
 			i.show()
 		else:
 			i.hide()
+
+
+
+
+@onready var add_mosque_name = $addMosquePage/MarginContainer/VBoxContainer/HBoxContainer3/AddMosqueName
+@onready var add_arabic_name_text_edit = $addMosquePage/MarginContainer/VBoxContainer/HBoxContainer2/AddArabicNameTextEdit
+@onready var add_block_text_edit = $addMosquePage/MarginContainer/VBoxContainer/HBoxContainer5/AddBlockTextEdit
+@onready var add_loc_text_edit = $addMosquePage/MarginContainer/VBoxContainer/HBoxContainer4/AddLocTextEdit
+@onready var add_edit_date_text_edit = $addMosquePage/MarginContainer/VBoxContainer/HBoxContainer10/AddEditDateTextEdit
+@onready var error_label = $addMosquePage/MarginContainer/VBoxContainer/ErrorLabel
+
+
+func _on_add_button_pressed():
+	
+	add_mosque_name = $addMosquePage/MarginContainer/VBoxContainer/HBoxContainer3/AddMosqueName
+	add_arabic_name_text_edit = $addMosquePage/MarginContainer/VBoxContainer/HBoxContainer2/AddArabicNameTextEdit
+	add_block_text_edit = $addMosquePage/MarginContainer/VBoxContainer/HBoxContainer5/AddBlockTextEdit
+	add_loc_text_edit = $addMosquePage/MarginContainer/VBoxContainer/HBoxContainer4/AddLocTextEdit
+	var locationSplitCoords: PackedStringArray = add_loc_text_edit.text.split(',')
+	
+	add_edit_date_text_edit = $addMosquePage/MarginContainer/VBoxContainer/HBoxContainer10/AddEditDateTextEdit
+#
+	
+	
+	if add_mosque_name.text not in data:
+		if locationSplitCoords.size() == 2:
+			eson.load_json(mainDir + '/mosquePlaces.json')
+			
+			eson.set_value(
+				add_mosque_name.text, 
+					{'arabicName': add_arabic_name_text_edit.text, 
+					'block': int(add_block_text_edit.text), 
+					"location": {"lon": float(locationSplitCoords[1].replace(" ", "")), "lat": float(locationSplitCoords[0].replace(" ", ""))}, 
+					"fajrIqama": 0,
+					"dhuhrIqama": 0,
+					"asrIqama": 0,
+					"maghribIqama": 0,
+					"ishaIqama": 0,
+					"editDate": add_edit_date_text_edit.text
+					})
+			
+			eson.save_json(mainDir + '/mosquePlaces.json')
+			get_tree().reload_current_scene()
+		else:
+			error_label.text = 'invaild coords, try: Latitude, Longitude'
+			print('bro coords wong')
+	else:
+		error_label.text = 'mosque name is taken'
+		print('name in data bro')
+
+
+func _on_button_pressed():
+	add_mosque_page.visible = true
