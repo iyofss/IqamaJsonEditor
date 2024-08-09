@@ -41,6 +41,13 @@ custom_minimum_size = Vector2(0, 165.415)
 layout_mode = 2
 placeholder_text = "search..."
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+modulate = Color(0, 0.937255, 0.890196, 1)
+custom_minimum_size = Vector2(731.065, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "add new mosque"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -237,6 +244,153 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 text = "back"
 
+[node name="addMosquePage" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_whpi7")
+
+[node name="ColorRect" type="ColorRect" parent="addMosquePage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.290196, 0.215686, 0.282353, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="addMosquePage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="addMosquePage/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="addMosquePage/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="addNewMosque" type="Label" parent="addMosquePage/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 101
+text = "add new mosque"
+horizontal_alignment = 1
+autowrap_mode = 3
+max_lines_visible = 2
+
+[node name="Label" type="Label" parent="addMosquePage/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 101
+text = "mosque details:"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="addMosquePage/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="addMosquePage/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Mosque name"
+vertical_alignment = 1
+
+[node name="AddMosqueName" type="TextEdit" parent="addMosquePage/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Mosque name"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="addMosquePage/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="addMosquePage/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "arabic Name:"
+vertical_alignment = 1
+
+[node name="AddArabicNameTextEdit" type="TextEdit" parent="addMosquePage/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_direction = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 36
+placeholder_text = "اسم المسجد"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="addMosquePage/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="addMosquePage/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "block:"
+vertical_alignment = 1
+
+[node name="AddBlockTextEdit" type="TextEdit" parent="addMosquePage/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "block"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="addMosquePage/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="addMosquePage/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "location(lat, lon):"
+vertical_alignment = 1
+
+[node name="AddLocTextEdit" type="TextEdit" parent="addMosquePage/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "lat, lon"
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="addMosquePage/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="addMosquePage/MarginContainer/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+text = "edit date:"
+vertical_alignment = 1
+
+[node name="AddEditDateTextEdit" type="TextEdit" parent="addMosquePage/MarginContainer/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "edit date"
+
+[node name="ErrorLabel" type="Label" parent="addMosquePage/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.360784, 0.360784, 1)
+theme_override_font_sizes/font_size = 101
+horizontal_alignment = 1
+autowrap_mode = 3
+max_lines_visible = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="addMosquePage/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 60
+
+[node name="addButton" type="Button" parent="addMosquePage/MarginContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(402.89, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "Add"
+
+[node name="backButton" type="Button" parent="addMosquePage/MarginContainer/VBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(316.155, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "back"
+
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="mosqueEditPage/MarginContainer/VBoxContainer/saveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="mosqueEditPage/MarginContainer/VBoxContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="addMosquePage/MarginContainer/VBoxContainer/VBoxContainer2/addButton" to="." method="_on_add_button_pressed"]
+[connection signal="pressed" from="addMosquePage/MarginContainer/VBoxContainer/VBoxContainer2/backButton" to="." method="_on_back_button_pressed"]
