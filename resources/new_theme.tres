@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b1ryrqpgbp0bm"]
+
+[ext_resource type="FontVariation" uid="uid://dx23pt4uonop2" path="res://resources/new_font_variation.tres" id="1_nvn7u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_polnt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6gc3"]
+bg_color = Color(0.662745, 0.819608, 0.992157, 1)
+border_width_left = 20
+border_width_right = 20
+border_color = Color(0.662745, 0.819608, 0.992157, 1)
+border_blend = true
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color(0, 0, 0, 0.188235)
+shadow_size = 10
+shadow_offset = Vector2(0, 5.585)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fdjm"]
+bg_color = Color(0.6, 0.6, 0.6, 0.576471)
+border_width_left = 35
+border_width_top = 35
+border_width_right = 35
+border_width_bottom = 35
+border_color = Color(0.6, 0.6, 0.6, 0.576471)
+border_blend = true
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+corner_detail = 11
+
+[resource]
+default_font = ExtResource("1_nvn7u")
+default_font_size = 80
+Button/colors/font_color = Color(0.396078, 0.270588, 0, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_polnt")
+Button/styles/normal = SubResource("StyleBoxFlat_y6gc3")
+MarginContainer/constants/margin_bottom = 45
+MarginContainer/constants/margin_left = 45
+MarginContainer/constants/margin_right = 45
+MarginContainer/constants/margin_top = 45
+TextEdit/styles/normal = SubResource("StyleBoxFlat_6fdjm")
+TooltipLabel/font_sizes/font_size = 40

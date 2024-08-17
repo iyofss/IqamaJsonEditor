@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://kjn2uye2qn6e"]
+
+[ext_resource type="FontVariation" uid="uid://dx23pt4uonop2" path="res://resources/new_font_variation.tres" id="1_n7wui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_polnt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6gc3"]
+bg_color = Color(0.662745, 0.819608, 0.992157, 1)
+border_width_left = 20
+border_width_right = 20
+border_color = Color(0.662745, 0.819608, 0.992157, 1)
+border_blend = true
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color(0, 0, 0, 0.188235)
+shadow_size = 10
+shadow_offset = Vector2(0, 5.585)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6fdjm"]
+bg_color = Color(0.54902, 0.607843, 0.682353, 0.576471)
+border_width_left = 35
+border_width_top = 35
+border_width_right = 35
+border_width_bottom = 35
+border_color = Color(0.54902, 0.607843, 0.682353, 0.576471)
+border_blend = true
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 11
+
+[sub_resource type="ImageTexture" id="ImageTexture_3t8wt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svew4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vrtn5"]
+
+[resource]
+default_font = ExtResource("1_n7wui")
+default_font_size = 75
+Button/colors/font_color = Color(0.396078, 0.270588, 0, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_polnt")
+Button/styles/normal = SubResource("StyleBoxFlat_y6gc3")
+MarginContainer/constants/margin_bottom = 45
+MarginContainer/constants/margin_left = 45
+MarginContainer/constants/margin_right = 45
+MarginContainer/constants/margin_top = 45
+TextEdit/styles/normal = SubResource("StyleBoxFlat_6fdjm")
+TooltipLabel/font_sizes/font_size = 40
+VScrollBar/icons/decrement = SubResource("ImageTexture_3t8wt")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_3t8wt")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_3t8wt")
+VScrollBar/icons/increment = SubResource("ImageTexture_3t8wt")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_3t8wt")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_3t8wt")
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_svew4")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_vrtn5")
