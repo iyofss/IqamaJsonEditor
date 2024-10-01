@@ -9,6 +9,10 @@ var mainDir = 'res://'
 
 var monke = JSON.new()
 
+var date = ""
+
+
+
 @onready var childeren = $MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer.get_children()
 
 var thingsported = ''
@@ -116,6 +120,11 @@ func save():
 # Mosque Button clicked:
 func _button_action(things):
 	if things not in newdata:
+		
+#		this will check the date
+		date = Time.get_date_string_from_system()
+		
+#		this will make the ui for the new data that doesn't exist
 		print('data: ' + str(data[things]))
 		mosque_name_label.text = things
 		arabic_name_text_edit.text = data[things]['arabicName']
@@ -128,8 +137,10 @@ func _button_action(things):
 		asr_iqama_text_edit.text = str(data[things]['asrIqama'])
 		maghrib_iqama_text_edit.text = str(data[things]['maghribIqama'])
 		isha_iqama_text_edit.text = str(data[things]['ishaIqama'])
-		edit_date_text_edit.text = data[things]['editDate']
+		edit_date_text_edit.text = date
 	elif things in newdata:
+		
+#		this will make the ui for the data that already exists
 		print('newdata: ' + str(newdata[things]))
 		mosque_name_label.text = things
 		arabic_name_text_edit.text = newdata[things]['arabicName']
